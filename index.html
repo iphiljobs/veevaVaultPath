@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Veeva Vault Platform technical curriculum and developer resources">
+<title>Vault Platform Engineering Guide</title>
+<style>
+:root{--ink:#152d2b;--muted:#58706c;--paper:#f5f7f3;--panel:#fff;--line:#d8e2dc;--green:#087b67;--mint:#dff3e9;--orange:#ef9d48;--shadow:0 18px 48px #133b2810;color-scheme:light}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--green);text-underline-offset:3px}a:hover{color:#035a4b}button,input{font:inherit}header{height:70px;padding:0 max(5vw,24px);display:flex;align-items:center;gap:28px;background:#fbfcfaeF;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}.brand{text-decoration:none;color:var(--ink);font-size:14px;white-space:nowrap}.brand b{display:inline-grid;place-items:center;background:var(--green);color:white;border-radius:9px;width:29px;height:29px;margin-right:7px}.brand strong{font-weight:750}nav{display:flex;gap:24px;margin-left:auto}nav a{font-size:13px;color:var(--muted);text-decoration:none}nav a:hover{color:var(--green)}#theme,.copy{border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink);padding:8px 13px;font-size:12px;cursor:pointer}main{overflow:hidden}.hero{min-height:510px;padding:76px max(8vw,32px) 72px;background:radial-gradient(ellipse at 76% 30%,#deeee5 0,#eaf1eb 27%,transparent 55%),linear-gradient(115deg,#f9faf7,#f1f6f0);display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:8vw}.hero-copy{max-width:740px}.eyebrow,.kicker,.lab small{font-size:11px;letter-spacing:.16em;font-weight:750;color:var(--green)}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,5vw,67px);line-height:1.09;letter-spacing:-.035em;margin:18px 0 20px}h1 em{color:var(--green);font-weight:500}.lede{max-width:660px;font-size:18px;color:var(--muted);line-height:1.55}.button{display:inline-block;padding:12px 17px;background:var(--green);color:#fff;border-radius:6px;text-decoration:none;margin:16px 10px 0 0;font-size:13px;font-weight:700}.button:hover{color:white;background:#065e50}.button.quiet{background:transparent;color:var(--green);border:1px solid #a9cbbd}.meta{margin-top:26px;color:var(--muted);font-size:11px}.preview{background:#173a36;color:#eff8f2;border-radius:12px;padding:24px 28px;box-shadow:0 25px 55px #153b2926;transform:rotate(1deg)}.preview small{color:#a8d8c2;font-size:10px;letter-spacing:.13em}.preview p{border-bottom:1px solid #ffffff25;padding:10px 0;margin:4px 0;font-size:14px}.wrap{max-width:1140px;margin:auto;padding:0 28px}.notice{border:1px solid #cce3d6;background:#eaf5ed;padding:17px 20px;border-radius:7px;color:#36534b;font-size:13px;margin:30px 0}.notice b{color:#12624f}section{padding:66px 0 34px;border-bottom:1px solid var(--line)}section h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,3.4vw,43px);letter-spacing:-.03em;line-height:1.2;margin:8px 0 12px}.summary{color:var(--muted);max-width:780px;margin:0 0 25px}.group{font-size:13px;color:#627571;letter-spacing:.08em;text-transform:uppercase;margin:34px 0 12px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.resource{background:var(--panel);border:1px solid var(--line);padding:20px;border-radius:8px;box-shadow:var(--shadow);transition:transform .15s,border-color .15s}.resource:hover{transform:translateY(-2px);border-color:#9fc7b4}.resource small{font-size:10px;color:var(--green);font-weight:800;letter-spacing:.12em}.resource h4{font-size:17px;line-height:1.3;margin:9px 0}.resource p{font-size:13px;color:var(--muted);min-height:61px;margin:0 0 12px}.resource a{display:block;font-size:12px;margin-top:6px}.resource .callout{font-size:11px;min-height:0;border-left:2px solid var(--orange);padding-left:9px;margin-top:13px}.search{border:1px solid var(--line);background:var(--panel);border-radius:7px;display:inline-flex;align-items:center;gap:9px;padding:6px 12px;color:var(--muted);width:min(420px,100%)}.search input{border:0;outline:0;background:transparent;width:100%;font-size:13px;color:var(--ink)}kbd{font-size:10px;background:#edf1ec;padding:2px 5px;border-radius:3px}#resource-count{font-size:12px;color:var(--muted);margin-left:10px}.table-scroll{overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}table{border-collapse:collapse;width:100%;min-width:780px;font-size:12px}th{text-align:left;background:#eaf2ed;color:#284a40;font-size:10px;letter-spacing:.06em;text-transform:uppercase}td,th{padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:last-child td{border-bottom:0}td:first-child{font-weight:750;white-space:nowrap;color:#155c4e}.tree{background:#183a36;color:#e8f2ec;padding:20px 22px;border-radius:8px;overflow:auto}.tree pre,.config{margin:0;font-size:12px;line-height:1.7;white-space:pre;tab-size:2}.subhead{font-weight:700;font-size:14px;margin:22px 0 8px}.config{background:#edf1ec;padding:18px;border-radius:7px;color:#28423b;overflow:auto}.lab{display:grid;grid-template-columns:.7fr 1.3fr;gap:26px;padding:23px;background:var(--panel);border:1px solid var(--line);border-radius:9px;margin:18px 0;box-shadow:var(--shadow)}.lab h3{font-family:Georgia,serif;font-size:24px;line-height:1.2;margin:7px 0}.lab p{font-size:13px;color:var(--muted)}.lab pre{background:#172e3b;color:#e6f0ed;padding:18px;border-radius:6px;overflow:auto;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0}.copy{margin:8px 0 0;border-radius:5px}.explain{background:#fff8e8;border-left:3px solid var(--orange);padding:14px 17px;font-size:13px;color:#5b5039}.note-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.note-grid aside{background:#ebf1ed;padding:17px;border-radius:7px;font-size:12px}.note-grid p{margin-bottom:0;color:var(--muted)}.source-note{font-size:11px;color:var(--muted);margin-top:22px}.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}.checks label{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:12px;font-size:13px;display:flex;gap:9px;align-items:flex-start}.checks input{accent-color:var(--green);margin-top:5px;flex:none}footer{max-width:1140px;margin:auto;padding:26px 28px 40px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}footer span:first-child{color:var(--ink);font-weight:700}[hidden]{display:none!important}body.dark{--ink:#e3ede8;--muted:#b2c2ba;--paper:#14211e;--panel:#1c2b27;--line:#354740;--green:#75d0ad;--mint:#273d34;--shadow:0 18px 48px #0003;color-scheme:dark}body.dark header{background:#14211eeF}body.dark .hero{background:radial-gradient(ellipse at 76% 30%,#254036 0,#1c3029 28%,transparent 57%),linear-gradient(115deg,#182722,#14211e)}body.dark .notice{background:#22392e;border-color:#355a46;color:#d0e2d6}body.dark .notice b,body.dark td:first-child{color:#8bddb8}body.dark th{background:#263a32;color:#cde4d7}body.dark .config,body.dark .note-grid aside{background:#23332d;color:#d9e6de}body.dark .explain{background:#3b3528;color:#eee0bd}body.dark kbd{background:#33423b}@media(max-width:850px){header{gap:10px;padding:0 18px}nav{gap:12px}nav a{font-size:11px}.hero{padding:58px 6vw;gap:35px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){header{height:auto;min-height:62px;flex-wrap:wrap;padding:11px 16px}.brand{margin-right:auto}nav{order:3;width:100%;overflow:auto;margin:0;padding:4px 0 2px}nav a{white-space:nowrap}.hero{grid-template-columns:1fr;padding:48px 24px}.preview{display:none}.wrap{padding:0 18px}section{padding:48px 0 25px}.cards,.lab,.note-grid,.checks{grid-template-columns:1fr}.resource p{min-height:0}.lab{padding:17px}.lab pre{font-size:11px}footer{padding:22px 18px;flex-wrap:wrap}footer span:nth-child(2){order:3;width:100%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="brand" href="#top"><b>V</b> Vault Platform <strong>Engineering Guide</strong></a><nav><a href="#resources">Resources</a><a href="#path">Learning path</a><a href="#structure">Site structure</a><a href="#labs">Code labs</a><a href="#release">Readiness</a></nav><button id="theme">◐ Theme</button></header>
+<main id="top">
+<section class="hero"><div class="hero-copy"><p class="eyebrow">TECHNICAL CURRICULUM · FIELD GUIDE</p><h1>Build a strong foundation.<br><em>Engineer Vault with confidence.</em></h1><p class="lede">A practical progression from Vault administration and security to VQL, integrations, Java SDK customization, and validated production releases.</p><a class="button" href="#path">Explore the learning path ↓</a><a class="button quiet" href="#resources">Browse official resources ↗</a><p class="meta">Veeva-primary sources · Version-aware · GitHub Pages ready</p></div><aside class="preview"><small>LEARNING PROGRESSION</small><p>01&nbsp; Platform &amp; security</p><p>02&nbsp; Configuration &amp; data</p><p>03&nbsp; APIs &amp; integrations</p><p>04&nbsp; SDK &amp; validation</p><small>10 learning levels · One connected platform</small></aside></section>
+<div class="wrap"><aside class="notice"><b>How to use this guide.</b> Public docs and samples are free to read. Hands-on configuration, debugging, and deployment require a Vault environment with suitable permissions—ideally a sandbox. Match documentation to the Vault release you target.</aside>
+<section id="resources"><p class="kicker">01 / SOURCE LIBRARY</p><h2>Start with the primary sources</h2><p class="summary">Veeva documentation, Veeva-maintained tools, public sample code, community channels, and compliance reading.</p>
+<label class="search">⌕ <input id="resource-search" type="search" placeholder="Search resources, topics, tools"><kbd>/</kbd></label><span id="resource-count"></span>
+<h3 class="group">A · Documentation and Help</h3><div class="cards">
+<article class="resource" data-search="developer portal api vql mdl sdk integrations releases"><small>PORTAL</small><h4>Vault Developer Portal</h4><p>Central directory for API, VQL, MDL, Java SDK, Direct Data API, integrations, and release notes.</p><a href="https://developer.veevavault.com/">Open portal ↗</a></article>
+<article class="resource" data-search="help docs platform admin navigation"><small>HELP DOCS</small><h4>Vault Platform Help</h4><p>Public user, administration, and tutorial documentation. Use product-family Help for app-specific behavior.</p><a href="https://platform.veevavault.help/en/lr/">Browse Help ↗</a></article>
+<article class="resource" data-search="vault api authentication endpoints metadata permissions"><small>API</small><h4>Vault API reference</h4><p>Authentication, versioning, endpoints, metadata, documents, objects, VQL, limits, and examples.</p><a href="https://developer.veevavault.com/docs">Read API docs ↗</a></article>
+<article class="resource" data-search="vql joins relationships query pagination profiler"><small>QUERY</small><h4>Vault Query Language</h4><p>VQL syntax, targets, relationships, joins, pagination, profiling, performance guidance.</p><a href="https://developer.veevavault.com/vql/">Open VQL docs ↗</a><a href="https://general.veevavault.dev/sitevault/vql/joins/outer-joins/object-outer-joins/">Related-object tutorial ↗</a></article>
+<article class="resource" data-search="mdl metadata definition language configuration"><small>METADATA</small><h4>Metadata Definition Language</h4><p>Manage configuration metadata as code. Check component references and release notes.</p><a href="https://developer.veevavault.com/mdl/">Explore MDL ↗</a></article>
+<article class="resource" data-search="java sdk javadocs triggers services debugger"><small>JAVA SDK</small><h4>Vault Java SDK &amp; Javadocs</h4><p>Setup, entry points, services, debugging, deployment, permissions, limits, signatures.</p><a href="https://developer.veevavault.com/sdk/">Read SDK guide ↗</a><a href="https://repo.veevavault.com/javadoc/">Browse Javadocs ↗</a></article>
+<article class="resource" data-search="direct data api bulk export analytics"><small>DATA EXPORT</small><h4>Direct Data API</h4><p>Bulk data export patterns for analytics and downstream processing.</p><a href="https://developer.veevavault.com/directdata/">Read docs ↗</a></article></div>
+<h3 class="group">B · Tools and public code</h3><div class="cards">
+<article class="resource" data-search="postman collection environments authentication rest"><small>POSTMAN</small><h4>Vault Platform Postman Collection</h4><p>Examples for auth, metadata, objects, documents, and queries. API calls require Vault access and permissions.</p><a href="https://developer.veevavault.com/api/26.2/#postman-collection">Collection guide ↗</a></article>
+<article class="resource" data-search="toolbox browser extension chrome edge vql editor data navigator"><small>BROWSER TOOL</small><h4>Vault Toolbox extension</h4><p>VQL editor, component editor, data tools, file browser, data navigator, workflow log inspector.</p><a href="https://general.veevavault.dev/vault-toolbox/browser-extension/overview">Overview ↗</a><a href="https://general.veevavault.dev/commercial/vault-toolbox/browser-extension/getting-started/quickstart">Quickstart ↗</a><p class="callout">Open-source, maintained by Vault Developer Support; not an official Veeva product. Support is through Veeva Connect.</p></article>
+<article class="resource" data-search="toolbox intellij plugin java sdk"><small>IDE TOOL</small><h4>Toolbox IntelliJ Plugin</h4><p>Companion tooling for custom code development. Check current compatibility details.</p><a href="https://general.veevavault.dev/clinical/vault-toolbox/intellij-plugin/overview">Plugin docs ↗</a></article>
+<article class="resource" data-search="veeva github samples trigger document job service vapil maven"><small>SOURCE CODE</small><h4>Veeva GitHub organization</h4><p>Public object/trigger, document, job-service, Spark integration, VAPIL, and Maven plugin repos.</p><a href="https://github.com/veeva">Browse repositories ↗</a><a href="https://github.com/veeva/vsdk-object-sample">Object/trigger example ↗</a><a href="https://github.com/veeva/vaultjavasdk-maven-plugin">SDK Maven plugin ↗</a><p class="callout">Check README, license, release, and production-use statements for each sample.</p></article></div>
+<h3 class="group">C · Community and compliance</h3><div class="cards">
+<article class="resource" data-search="veeva connect community developers support access"><small>COMMUNITY</small><h4>Vault for Developers on Veeva Connect</h4><p>Community discussion and dedicated developer/Toolbox support. Eligibility may be required.</p><a href="https://connect.veeva.com/">Open Veeva Connect ↗</a></article>
+<article class="resource" data-search="csv computer systems validation gamp 5 risk whitepaper"><small>WHITE PAPER</small><h4>Veeva project CSV approach</h4><p>Project computer systems validation, risk-based thinking, GAMP 5 alignment.</p><a href="https://www.veeva.com/resources/veeva-professional-services-project-computer-systems-validation-csv/">Read paper ↗</a></article>
+<article class="resource" data-search="gxp risk based change management validated systems"><small>WHITE PAPER</small><h4>Risk-based GxP change management</h4><p>Assess configuration changes and releases for validated GxP systems.</p><a href="https://www.veeva.com/resources/risk-based-approach-to-change-management-of-gxp-systems/">Read paper ↗</a></article>
+<article class="resource" data-search="snapshots compliant validation configuration compare"><small>WHITE PAPER</small><h4>Snapshots for compliant validation</h4><p>Using Vault snapshots to validate changes and minimize GxP change risk.</p><a href="https://www.veeva.com/resources/leveraging-snapshots-for-compliant-validation-in-veeva-vault/">Read paper ↗</a></article>
+<article class="resource" data-search="validation features brief"><small>FEATURE BRIEF</small><h4>Vault validation features</h4><p>Veeva’s feature-level overview of Vault validation support.</p><a href="https://www.veeva.com/resources/veeva-vault-validation-product-brief/">Read feature brief ↗</a></article>
+<article class="resource" data-search="user management roles responsibilities security"><small>WHITE PAPER</small><h4>User management in Vault</h4><p>Best practices for user roles, responsibilities, and access management.</p><a href="https://www.veeva.com/resources/defining-user-management-processes-in-vault/">Read paper ↗</a></article>
+<article class="resource" data-search="resource library videos webinars demos whitepapers"><small>LIBRARY</small><h4>Vault Platform resource library</h4><p>Veeva videos, demos, webinars, customer stories, and white papers.</p><a href="https://www.veeva.com/resources/?area=vault-platform-area">Browse library ↗</a></article></div>
+<p class="source-note">Links point to Veeva-owned docs, Veeva-maintained repositories, or Veeva Connect. Public availability does not mean a sandbox, feature, or forum is open to everyone.</p>
+</section>
+<section id="path"><p class="kicker">02 / DEPENDENCY MAP</p><h2>A sequenced path from admin to validated code</h2><p class="summary">Each stage builds skills needed by the next. Complete the checkpoint before moving forward; access to a Vault sandbox becomes essential by Stage 2.</p>
+<div class="table-scroll"><table><thead><tr><th>Stage</th><th>Learn</th><th>Why it comes here</th><th>Checkpoint</th></tr></thead><tbody>
+<tr><td>00 · Prerequisites</td><td>HTTP, REST, JSON, Java fundamentals, Git, Maven, SQL concepts; GxP and SDLC vocabulary</td><td>Shared technical language for later API, SDK, and validation work</td><td>Call a public REST API; build a small Maven project; explain traceability</td></tr>
+<tr><td>01 · Platform model</td><td>Vaults, domains, applications, configuration vs. code, documents vs. object records; Admin vs. Business Admin</td><td>Orient to the platform before changing it</td><td>Navigate a sandbox and identify object, document, and lifecycle concepts</td></tr>
+<tr><td>02 · Security &amp; administration</td><td>Users, groups, security profiles, permission sets, roles, lifecycle states, audit trail</td><td>Every configuration and API operation runs within access controls</td><td>Explain effective access for a test user; verify least privilege and audit evidence</td></tr>
+<tr><td>03 · Data &amp; process configuration</td><td>Objects, fields, picklists, relationships, document types, lifecycles, workflows, page layouts</td><td>Queries and triggers depend on the configured schema and process</td><td>Model a small parent/child business process and document its field/API names</td></tr>
+<tr><td>04 · Metadata &amp; VQL</td><td>MDL for metadata; VQL for querying objects and relationships; query limits and profiling</td><td>Builds reliable inspection and extraction skills on a known schema</td><td>Run a bounded parent/child query; explain its result shape and access context</td></tr>
+<tr><td>05 · API fundamentals</td><td>Authentication, API versions, object/document endpoints, pagination, errors, Postman, Toolbox</td><td>Proves the platform behavior before choosing custom code</td><td>Authenticate in a sandbox, inspect metadata, read and safely update a test record</td></tr>
+<tr><td>06 · Integration design</td><td>Idempotency, retries, batching, limits, observability, credential handling; Vault API vs. Direct Data API vs. VAPIL</td><td>Operational guarantees shape implementation and recovery design</td><td>Draw a failure/retry flow; test pagination and duplicate-safe behavior</td></tr>
+<tr><td>07 · Java SDK setup</td><td>Vault Java SDK docs/Javadocs, compatible SDK dependency, Maven plugin, Toolbox/IntelliJ workflow, VPK packaging</td><td>SDK work needs version-aligned local tooling and deployable packages</td><td>Build and deploy a minimal sample to a non-production Vault</td></tr>
+<tr><td>08 · Custom code</td><td>Record triggers (before/after), actions, jobs/services, record changes, context, transaction behavior</td><td>Choose an entry point only after configuration and API limits are understood</td><td>Implement one narrow before-trigger validation; handle multiple records safely</td></tr>
+<tr><td>09 · Test, validate &amp; operate</td><td>Unit/integration tests, snapshots, risk assessment, change control, evidence, monitoring, rollback</td><td>Production readiness depends on controlled verification, not compilation alone</td><td>Trace a requirement to test evidence and approved deployment package</td></tr>
+</tbody></table></div>
+<aside class="notice"><b>Platform-specific details change by release.</b> Before building, check the target Vault release, SDK/API version compatibility, feature availability, and current limits in the official release documentation.</aside>
+</section>
+<section id="structure"><p class="kicker">03 / DOCUMENTATION ARCHITECTURE</p><h2>A tidy MkDocs project structure</h2><p class="summary">Keep learning content, runnable examples, and authoritative source links separate. Use a lightweight static-site build that GitHub Pages can host.</p>
+<div class="tree"><pre>vault-platform-guide/
+├── index.html                  # Standalone GitHub Pages landing page
+├── README.md                   # Scope, prerequisites, local preview, publishing
+├── .nojekyll                   # Serve static assets as-is
+├── mkdocs.yml                  # Optional MkDocs navigation
+├── docs/
+│   ├── index.md
+│   ├── curriculum/
+│   │   ├── 00-prerequisites.md
+│   │   ├── 01-platform-model.md
+│   │   ├── 02-security-admin.md
+│   │   └── 09-validation-operations.md
+│   ├── data-and-query/
+│   │   ├── object-model.md
+│   │   ├── mdl.md
+│   │   └── vql.md
+│   ├── api-and-integration/
+│   │   ├── authentication.md
+│   │   ├── postman-toolbox.md
+│   │   └── integration-patterns.md
+│   ├── java-sdk/
+│   │   ├── setup.md
+│   │   ├── record-triggers.md
+│   │   └── testing-and-packaging.md
+│   ├── compliance/
+│   │   ├── risk-and-validation.md
+│   │   └── release-evidence.md
+│   ├── labs/
+│   │   ├── 01-vql-parent-child.md
+│   │   └── 02-before-trigger.md
+│   ├── references.md
+│   └── glossary.md
+├── examples/
+│   ├── vql/
+│   │   └── product-country.vql
+│   └── java-sdk/
+│       └── JustificationRequiredTrigger.java
+├── assets/
+│   ├── css/site.css
+│   └── js/site.js
+└── .github/workflows/pages.yml  # Optional CI deployment workflow</pre></div>
+<p class="subhead">Optional MkDocs navigation</p><pre class="config">site_name: Vault Platform Engineering Guide
+site_description: Veeva Vault platform learning path and developer labs
+docs_dir: docs
+theme:
+  name: mkdocs
+nav:
+  - Home: index.md
+  - Learning path: curriculum/00-prerequisites.md
+  - References: references.md</pre>
+<p class="source-note">The included page is plain HTML/CSS/JS and needs no build. The tree and config show how to expand it into a MkDocs documentation site as the curriculum grows.</p>
+</section>
+<section id="labs"><p class="kicker">04 / PRACTICAL MILESTONES</p><h2>Two small labs, grounded in the official model</h2><div class="lab"><div><small>LAB 01 · VQL</small><h3>Extract parents and related children</h3><p>Official-style parent-to-child relationship query. Replace object, field, relationship, and reference names with the exact API names configured in your Vault. Run with a test account that has appropriate read access.</p></div><div><pre><code>SELECT id, name__v,
+       (
+         SELECT id, name__v,
+                country__cr.id, country__cr.name__v
+         FROM approved_countries__cr
+       )
+FROM product__v</code></pre><button class="copy">Copy query</button></div></div>
+<p class="explain"><b>Read the result shape:</b> each Product appears at the top level, with its related approved-country records nested under approved_countries__cr. The country fields are read through the child record's country__cr relationship. This is an outer join: Products remain in results even when they have no related approved-country record. Check current VQL documentation for filtering related rows and response pagination.</p>
+<div class="lab"><div><small>LAB 02 · VAULT JAVA SDK</small><h3>Reject an invalid record before save</h3><p>Illustrative BEFORE_INSERT / BEFORE_UPDATE trigger: an exception-type training request requires a justification. The example handles every record change in the trigger context and attaches a record-level validation error.</p></div><div><pre><code>package com.veeva.vault.custom.training;
+
+import com.veeva.vault.sdk.api.core.ValueType;
+import com.veeva.vault.sdk.api.data.Record;
+import com.veeva.vault.sdk.api.data.RecordChange;
+import com.veeva.vault.sdk.api.data.RecordEvent;
+import com.veeva.vault.sdk.api.data.RecordTrigger;
+import com.veeva.vault.sdk.api.data.RecordTriggerContext;
+import com.veeva.vault.sdk.api.data.RecordTriggerInfo;
+
+@RecordTriggerInfo(
+    object = "training_request__c",
+    events = {RecordEvent.BEFORE_INSERT, RecordEvent.BEFORE_UPDATE}
+)
+public class JustificationRequiredTrigger implements RecordTrigger {
+
+    @Override
+    public void execute(RecordTriggerContext context) {
+        for (RecordChange change : context.getRecordChanges()) {
+            Record proposed = change.getNew();
+            String requestType = proposed.getValue(
+                "request_type__c", ValueType.STRING
+            );
+            String justification = proposed.getValue(
+                "justification__c", ValueType.STRING
+            );
+
+            boolean isException = requestType != null
+                &amp;&amp; "exception__c".equals(requestType);
+            boolean hasJustification = justification != null
+                &amp;&amp; !justification.trim().isEmpty();
+
+            if (isException &amp;&amp; !hasJustification) {
+                change.setError(
+                    "JUSTIFICATION_REQUIRED",
+                    "Provide a justification for exception requests."
+                );
+            }
+        }
+    }
+}</code></pre><button class="copy">Copy Java</button></div></div>
+<div class="note-grid"><aside><b>Check before compiling</b><p>Confirm the SDK API signatures against the Java SDK documentation and Javadocs for the SDK version selected by your Vault release. Field API names and stored picklist values must match your schema.</p></aside><aside><b>Understand the lifecycle</b><p>BEFORE triggers can set an error on a record to prevent the operation. AFTER triggers run after the operation; use the documented exception behavior for the target SDK. Triggers execute in Vault’s server context and should be safe for bulk record changes.</p></aside></div>
+<p class="source-note">Official references: <a href="https://general.veevavault.dev/sitevault/vql/joins/outer-joins/object-outer-joins/">VQL object outer joins</a> · <a href="https://general.veevavault.dev/regulatory/vault-sdk/entry-points/triggers/record-triggers/anatomy-record-triggers/">Record Trigger anatomy</a> · <a href="https://repo.veevavault.com/javadoc/vault-sdk-api/26.1.3/docs/api/com/veeva/vault/sdk/api/data/RecordChange.html">RecordChange Javadocs</a>. The Java block illustrates the trigger pattern; compile against the current SDK in the Vault SDK developer environment before adoption.</p>
+</section>
+<section id="release"><p class="kicker">05 / PRODUCTION READINESS</p><h2>Turn working code into a controlled release</h2><p class="summary">Use this as a review aid. Adapt test depth and evidence to intended use, system risk, and your organization’s approved quality process.</p>
+<div class="checks"><label><input type="checkbox"> Requirement, intended use, risk, and acceptance criteria are recorded.</label><label><input type="checkbox"> API names, permissions, entry point, release compatibility, and dependencies are verified.</label><label><input type="checkbox"> Tests cover valid, invalid, null, boundary, bulk, API, and user-interface paths where applicable.</label><label><input type="checkbox"> Regression, error handling, retry behavior, and rollback/recovery have been assessed.</label><label><input type="checkbox"> Test evidence links requirements to results, reviewer, build/package, and environment.</label><label><input type="checkbox"> Security review confirms least privilege, secret handling, and appropriate log content.</label><label><input type="checkbox"> Package/configuration changes are reviewed, compared, approved, and deployed through change control.</label><label><input type="checkbox"> Post-release monitoring, ownership, support path, and operational runbook are ready.</label></div>
+<aside class="notice"><b>Training use.</b> This guide is an independent learning aid, not a Veeva certification course or a validation template. Veeva docs, product releases, and organizational quality procedures remain authoritative for implementation decisions.</aside>
+</section></div>
+</main><footer><span>Vault Platform Engineering Guide</span><span>Independent learning resource · Verify against current Veeva documentation</span><a href="#top">Back to top ↑</a></footer>
+<script>
+(function(){
+  var search=document.getElementById("resource-search");
+  var cards=Array.prototype.slice.call(document.querySelectorAll(".resource"));
+  var count=document.getElementById("resource-count");
+  function filter(){
+    var query=(search.value||"").trim().toLowerCase(), shown=0;
+    cards.forEach(function(card){
+      var match=!query||((card.getAttribute("data-search")||"")+" "+card.innerText).toLowerCase().indexOf(query)!==-1;
+      card.hidden=!match;if(match)shown++;
+    });
+    count.textContent=query?(shown+" of "+cards.length+" resources"):(cards.length+" resources");
+  }
+  search.addEventListener("input",filter);filter();
+  document.addEventListener("keydown",function(event){
+    if(event.key==="/"&&!event.ctrlKey&&!event.metaKey&&document.activeElement.tagName!=="INPUT"&&document.activeElement.tagName!=="TEXTAREA"){event.preventDefault();search.focus();}
+    if(event.key==="Escape"&&document.activeElement===search){search.value="";filter();search.blur();}
+  });
+  var theme=document.getElementById("theme");
+  try{if(localStorage.getItem("vault-guide-theme")==="dark")document.body.classList.add("dark");}catch(e){}
+  theme.addEventListener("click",function(){document.body.classList.toggle("dark");try{localStorage.setItem("vault-guide-theme",document.body.classList.contains("dark")?"dark":"light");}catch(e){}});
+  document.querySelectorAll(".copy").forEach(function(button){
+    button.addEventListener("click",function(){
+      var code=button.parentElement.querySelector("code");
+      navigator.clipboard.writeText(code.innerText).then(function(){var original=button.textContent;button.textContent="Copied";setTimeout(function(){button.textContent=original;},1500);}).catch(function(){button.textContent="Select and copy";});
+    });
+  });
+})();
+</script>
+</body></html>
